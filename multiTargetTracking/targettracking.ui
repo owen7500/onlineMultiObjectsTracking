@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>TargetTracking</class>
+ <widget class="QMainWindow" name="TargetTracking">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>463</width>
+    <height>323</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>TargetTracking</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QLabel" name="videoLabel">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <spacer name="horizontalSpacer">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QPushButton" name="startPushButton">
+          <property name="text">
+           <string>开始</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="cancelPushButton">
+          <property name="text">
+           <string>取消</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>463</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>文件</string>
+    </property>
+    <addaction name="fileOpenAction"/>
+    <addaction name="exitAction"/>
+   </widget>
+   <widget class="QMenu" name="menu_2">
+    <property name="title">
+     <string>功能</string>
+    </property>
+    <widget class="QMenu" name="menu_4">
+     <property name="title">
+      <string>前景检测算法</string>
+     </property>
+     <addaction name="actionFgFrameDiff"/>
+     <addaction name="actionFgAdptiveMiddleFilter"/>
+     <addaction name="actionFgVIBE"/>
+     <addaction name="actionFgFric"/>
+     <addaction name="actionFgLBASOM"/>
+    </widget>
+    <widget class="QMenu" name="menu_5">
+     <property name="title">
+      <string>特征选择</string>
+     </property>
+     <addaction name="actionFeatureHash"/>
+     <addaction name="actionFeatureHistgram"/>
+     <addaction name="actionSurf"/>
+     <addaction name="actionCEDDFeature"/>
+    </widget>
+    <widget class="QMenu" name="menu_8">
+     <property name="title">
+      <string>搜索特征</string>
+     </property>
+     <addaction name="searchActionHash"/>
+     <addaction name="searchActionColorHistGram"/>
+     <addaction name="searchActionCEDD"/>
+    </widget>
+    <addaction name="menu_5"/>
+    <addaction name="menu_8"/>
+    <addaction name="menu_4"/>
+   </widget>
+   <widget class="QMenu" name="menu_3">
+    <property name="title">
+     <string>设置</string>
+    </property>
+    <widget class="QMenu" name="menu_6">
+     <property name="title">
+      <string>模式选择</string>
+     </property>
+     <addaction name="actionSingleCamera"/>
+     <addaction name="actionMultiCamera"/>
+    </widget>
+    <addaction name="menu_6"/>
+    <addaction name="actionTrackingAccuracy"/>
+    <addaction name="actionTargetSavePath"/>
+   </widget>
+   <widget class="QMenu" name="menu_7">
+    <property name="title">
+     <string>关于</string>
+    </property>
+    <addaction name="actionVersion"/>
+    <addaction name="actionAboutAuthor"/>
+   </widget>
+   <addaction name="menu"/>
+   <addaction name="menu_2"/>
+   <addaction name="menu_3"/>
+   <addaction name="menu_7"/>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="fileOpenAction">
+   <property name="text">
+    <string>打开</string>
+   </property>
+  </action>
+  <action name="exitAction">
+   <property name="text">
+    <string>退出</string>
+   </property>
+  </action>
+  <action name="actionFgFrameDiff">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>帧间差分</string>
+   </property>
+  </action>
+  <action name="actionFgVIBE">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>VIBE</string>
+   </property>
+  </action>
+  <action name="actionFgFric">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>快速光照鲁棒</string>
+   </property>
+  </action>
+  <action name="actionFgAdptiveMiddleFilter">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>自适应中值滤波</string>
+   </property>
+  </action>
+  <action name="actionFgLBASOM">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>自适应自组织网络</string>
+   </property>
+  </action>
+  <action name="actionFeatureHistgram">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>颜色直方图</string>
+   </property>
+  </action>
+  <action name="actionFeatureHash">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>图像哈希</string>
+   </property>
+  </action>
+  <action name="actionSurf">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>surf特征</string>
+   </property>
+  </action>
+  <action name="actionSingleCamera">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>单摄像头</string>
+   </property>
+  </action>
+  <action name="actionMultiCamera">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>多摄像头</string>
+   </property>
+  </action>
+  <action name="actionTrackingAccuracy">
+   <property name="text">
+    <string>跟踪精度</string>
+   </property>
+  </action>
+  <action name="actionVersion">
+   <property name="text">
+    <string>版本</string>
+   </property>
+  </action>
+  <action name="actionAboutAuthor">
+   <property name="text">
+    <string>关于作者</string>
+   </property>
+  </action>
+  <action name="actionCEDDFeature">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>CEDD特征</string>
+   </property>
+  </action>
+  <action name="actionTargetSavePath">
+   <property name="text">
+    <string>目标保存路径</string>
+   </property>
+  </action>
+  <action name="searchActionColorHistGram">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>颜色直方图</string>
+   </property>
+  </action>
+  <action name="searchActionCEDD">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>CEDD特征</string>
+   </property>
+  </action>
+  <action name="searchActionHash">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>图像哈希</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>
